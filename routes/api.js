@@ -167,7 +167,8 @@ module.exports = function (app) {
       
       } catch (err) {
         console.error("Database delete error:", err);
-        return res.json({ error: 'invalid _id', '_id': _id });
+        return res.json({ error: 'could not delete', '_id': _id });
       }
     });
 };
+
