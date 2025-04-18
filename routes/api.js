@@ -151,14 +151,14 @@ module.exports = function (app) {
       const _id = req.body._id; // Store _id in a variable for later use
       
       if (!ObjectID.isValid(_id)) {
-        return res.status(500).json({ error: 'could not delete', '_id': _id });
+        return res.json({ error: 'could not delete', '_id': _id });
       }
       
       try {
         const result = await Issue.findByIdAndDelete(_id);
         // If result is null, it means no document was found with that _id
         if (!result) {
-          return res.status(400).json({ error: 'could not delete', '_id': _id });
+          return res.json({ error: 'could not delete', '_id': _id });
         }
         // If deletion was successful, send a success response
         res.json({ result: 'successfully deleted', '_id': _id });
@@ -167,7 +167,7 @@ module.exports = function (app) {
       
       } catch (err) {
         console.error("Database delete error:", err);
-        return res.status(500).json({ error: 'invalid _id', '_id': _id });
+        return res.json({ error: 'invalid _id', '_id': _id });
       }
     });
 };
