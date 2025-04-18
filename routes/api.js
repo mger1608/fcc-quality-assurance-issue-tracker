@@ -76,7 +76,7 @@ module.exports = function (app) {
       
       // Check if _id is present in req.body else send specific error response
       if (!_id) {
-        return res.status(400).json({ error: 'missing _id' });
+        return res.json({ error: 'missing _id' });
       }
 
       if (!ObjectID.isValid(_id)) {
@@ -144,7 +144,7 @@ module.exports = function (app) {
 
       // Check if _id is present in req.body else send specific error response
       if (!req.body._id) {
-        return res.status(400).json({ error: 'missing _id' });
+        return res.json({ error: 'missing _id' });
       }
 
       // Attempt to delete issue from database using provided _id and project
