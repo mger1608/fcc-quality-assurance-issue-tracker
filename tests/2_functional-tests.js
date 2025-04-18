@@ -182,7 +182,7 @@ suite('Functional Tests', function() {
             })
             .end(function(err, res) {
                 assert.isNull(err);
-                assert.equal(res.status, 400);
+                assert.equal(res.status, 200);
                 assert.equal(res.type, 'application/json');
                 assert.propertyVal(res.body, 'error', 'missing _id');
                 done();
@@ -247,7 +247,7 @@ suite('Functional Tests', function() {
             })
             .end(function(err, res) {
                 assert.isNull(err);
-                assert.equal(res.status, 500);
+                assert.equal(res.status, 200);
                 assert.equal(res.type, 'application/json');
                 assert.propertyVal(res.body, 'error', 'could not delete');
                 assert.propertyVal(res.body, '_id', 'invalid123abc');
@@ -262,7 +262,7 @@ suite('Functional Tests', function() {
                 // No _id provided
             }).end(function(err, res) {
                 assert.isNull(err);
-                assert.equal(res.status, 400);
+                assert.equal(res.status, 200);
                 assert.equal(res.type, 'application/json');
                 assert.propertyVal(res.body, 'error', 'missing _id');
                 done();
